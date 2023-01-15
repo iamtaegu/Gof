@@ -1,8 +1,11 @@
+import adapter.FileIO;
+import adapter.FileProperties;
 import adapter.extendsPattern.Print;
 import adapter.extendsPattern.PrintBanner;
 import iterator.Book;
 import iterator.BookShelf;
 
+import java.io.IOException;
 import java.util.Iterator;
 
 public class Main {
@@ -14,8 +17,39 @@ public class Main {
 
     private static void adapterPattern() {
 
-        extendsPattern();
+        //extendsPattern();
+        delegationPattern();
+        practiceProblem();
+    }
 
+    private static void practiceProblem() {
+        System.out.println("[practiceProblem START]");
+
+        FileIO f = new FileProperties();
+        try {
+            f.readFromFile("file.txt");
+            f.setValue("width", "1024");
+            f.setValue("height", "512");
+            f.setValue("depth", "32");
+            f.writeToFile("newfile.txt");
+            System.out.println("newfile.txt is created");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("[practiceProblem END]");
+    }
+
+    /**
+     * showWithParen/Aster 처리를
+     * PrintBanner에 Banner 인스턴에 위임
+     */
+    private static void delegationPattern() {
+        // 사실 Main 코드의 변경은 없고,
+        // 내부적으로 Paren/Aster 처리에 대한 pattern만 변경 됐음
+        Print p = new PrintBanner("Hello");
+        p.printWeak();
+        p.printStrong();
     }
 
     /**
