@@ -4,6 +4,9 @@ import adapter.extendsPattern.Print;
 import adapter.extendsPattern.PrintBanner;
 import iterator.Book;
 import iterator.BookShelf;
+import template_3장.AbstractDisplay;
+import template_3장.CharDisplay;
+import template_3장.StringDisplay;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -12,7 +15,22 @@ public class Main {
 
     public static void main(String[] args) {
         //iteratorPattern();
-        adapterPattern();
+        //adapterPattern();
+        // 3장 templatePattern
+        templatePattern();
+    }
+
+    private static void templatePattern() {
+        // 'H'를 가진 CharDisplay 인스턴스를 하나 만듬
+        AbstractDisplay d1 = new CharDisplay('H');
+        // "Hello, world."를 가진 StringDisplay 인스턴스를 하나 만듬
+        AbstractDisplay d2 = new StringDisplay("Hello, world.");
+
+        // d1,d2 모두 같은 AbstractDisplay의 하위 클래스의 인스턴스이므로
+        // 상속한 display 메소드를 호출할 수 있음
+        // 실제 동작은 CharDisplay나 StringDisplay 클래스에서 정해짐
+        d1.display();
+        d2.display();
     }
 
     private static void adapterPattern() {
