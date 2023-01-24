@@ -2,6 +2,9 @@ import adapter.FileIO;
 import adapter.FileProperties;
 import adapter.extendsPattern.Print;
 import adapter.extendsPattern.PrintBanner;
+import factory_4장.framework.Factory;
+import factory_4장.framework.Product;
+import factory_4장.idcard.IDCardFactory;
 import iterator.Book;
 import iterator.BookShelf;
 import template_3장.AbstractDisplay;
@@ -16,8 +19,20 @@ public class Main {
     public static void main(String[] args) {
         //iteratorPattern();
         //adapterPattern();
-        // 3장 templatePattern
-        templatePattern();
+
+        //templatePattern(); // 3장 templatePattern
+        factoryPattern(); // 4장 factoryPattern
+    }
+
+    private static void factoryPattern() {
+        Factory factory = new IDCardFactory();
+        Product card1 = factory.create("card1");
+        Product card2 = factory.create("card2");
+        Product card3 = factory.create("card3");
+        card1.use();
+        card2.use();
+        card3.use();
+
     }
 
     private static void templatePattern() {
