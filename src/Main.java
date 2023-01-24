@@ -7,6 +7,9 @@ import factory_4장.framework.Product;
 import factory_4장.idcard.IDCardFactory;
 import iterator.Book;
 import iterator.BookShelf;
+import singleton_5장.Singleton;
+import singleton_5장.TicketMaker;
+import singleton_5장.Triple;
 import template_3장.AbstractDisplay;
 import template_3장.CharDisplay;
 import template_3장.StringDisplay;
@@ -22,7 +25,45 @@ public class Main {
         //adapterPattern();
 
         //templatePattern(); // 3장 templatePattern
-        factoryPattern(); // 4장 factoryPattern
+        //factoryPattern(); // 4장 factoryPattern
+        singletonPattern(); // 5장 singletonPattern
+
+    }
+
+    private static void singletonPattern() {
+        Singleton obj1 = Singleton.getInstance();
+        Singleton obj2 = Singleton.getInstance();
+        if (obj1 == obj2) {
+            System.out.println("같은 인스턴스입니다.");
+        } else {
+            System.out.println("다른 인스턴스입니다.");
+        }
+
+        // 연습문제
+        TicketMaker ticketMaker1 = TicketMaker.getInstance();
+        TicketMaker ticketMaker2 = TicketMaker.getInstance();
+        if (ticketMaker1 == ticketMaker2) {
+            System.out.println("같은 인스턴스입니다.");
+        } else {
+            System.out.println("다른 인스턴스입니다.");
+        }
+
+        System.out.println(ticketMaker1.getNextTicketNumber());
+        System.out.println(ticketMaker2.getNextTicketNumber());
+        System.out.println(ticketMaker1.getNextTicketNumber());
+        System.out.println(ticketMaker2.getNextTicketNumber());
+
+        System.out.println("===Triple===");
+
+        Triple t1 = Triple.getInstance("ALPHA");
+        Triple t2 = Triple.getInstance("BETA");
+        Triple t3 = Triple.getInstance("GAMMA");
+
+        System.out.println(t1.name);
+        System.out.println(t2.name);
+        System.out.println(t3.name);
+
+
     }
 
     private static void factoryPattern() {
