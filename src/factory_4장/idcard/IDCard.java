@@ -4,8 +4,15 @@ import factory_4장.framework.Product;
 
 public class IDCard extends Product {
     private String owner;
+    private int serial;
 
-    public IDCard(String owner) {
+    IDCard (String owner, int serial) {
+        System.out.println(owner + "의 " + serial + "번 카드를 만듭니다.");
+        this.owner = owner;
+        this.serial = serial;
+    }
+
+    IDCard(String owner) {
         System.out.println(owner + "의 카드를 만듭니다.");
         this.owner = owner;
     }
