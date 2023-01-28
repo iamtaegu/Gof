@@ -1,0 +1,6 @@
+#written by FileProperties
+#Sun Jan 15 15:46:41 KST 2023
+depth=32
+width=1024
+yrdyrdy=
+height=512
