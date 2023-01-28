@@ -3,10 +3,14 @@ import adapter.FileProperties;
 import adapter.extendsPattern.Print;
 import adapter.extendsPattern.PrintBanner;
 import factory_4장.framework.Factory;
-import factory_4장.framework.Product;
+//import factory_4장.framework.Product;
 import factory_4장.idcard.IDCardFactory;
 import iterator.Book;
 import iterator.BookShelf;
+import protoType_6장.MessageBox;
+import protoType_6장.UnderlinePen;
+import protoType_6장.framework.Manager;
+import protoType_6장.framework.Product;
 import singleton_5장.Singleton;
 import singleton_5장.TicketMaker;
 import singleton_5장.Triple;
@@ -26,8 +30,35 @@ public class Main {
 
         //templatePattern(); // 3장 templatePattern
         //factoryPattern(); // 4장 factoryPattern
-        singletonPattern(); // 5장 singletonPattern
+        //singletonPattern(); // 5장 singletonPattern
+        prototypePattern();
 
+    }
+
+    private static void prototypePattern() {
+        /**
+         * Manager 인스턴스를 만들고
+         * UnderlinePen, MessageBox 인스턴스 등록
+         */
+        Manager manager = new Manager();
+        UnderlinePen upen = new UnderlinePen('-');
+        MessageBox mbox = new MessageBox('*');
+        MessageBox sbox = new MessageBox('/');
+
+        //등록
+        manager.register("strong message", upen);
+        manager.register("warning box", mbox);
+        manager.register("slash box", sbox);
+
+        //생성과 사용
+        Product p1 = manager.create("strong message");
+        p1.use("Hello, world.");
+
+        Product p2 = manager.create("warning box");
+        p2.use("Hello, world.");
+
+        Product p3 = manager.create("slash box");
+        p3.use("Hello, world.");
     }
 
     private static void singletonPattern() {
@@ -66,7 +97,7 @@ public class Main {
 
     }
 
-    private static void factoryPattern() {
+    /* private static void factoryPattern() {
         Factory factory = new IDCardFactory();
         Product card1 = factory.create("card1");
         Product card2 = factory.create("card2");
@@ -75,7 +106,7 @@ public class Main {
         card2.use();
         card3.use();
 
-    }
+    } */
 
     private static void templatePattern() {
         // 'H'를 가진 CharDisplay 인스턴스를 하나 만듬
