@@ -2,6 +2,9 @@ import adapter.FileIO;
 import adapter.FileProperties;
 import adapter.extendsPattern.Print;
 import adapter.extendsPattern.PrintBanner;
+import builder_7장.Director;
+import builder_7장.HTMLBuilder;
+import builder_7장.TextBuilder;
 import factory_4장.framework.Factory;
 //import factory_4장.framework.Product;
 import factory_4장.idcard.IDCardFactory;
@@ -31,7 +34,26 @@ public class Main {
         //templatePattern(); // 3장 templatePattern
         //factoryPattern(); // 4장 factoryPattern
         //singletonPattern(); // 5장 singletonPattern
-        prototypePattern();
+        //prototypePattern(); // 6장 prototypePattern
+        builderPattern();
+
+    }
+
+    private static void builderPattern() {
+
+        TextBuilder textBuilder = new TextBuilder();
+        Director director = new Director(textBuilder);
+        director.construct();
+        String result = textBuilder.getTextResult();
+        System.out.println(result);
+
+        System.out.println("\n\n");
+
+        HTMLBuilder htmlBuilder = new HTMLBuilder();
+        director = new Director(htmlBuilder);
+        director.construct();
+        String filename = htmlBuilder.getHTMLResult();
+        System.out.println(filename);
 
     }
 
