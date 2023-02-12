@@ -1,3 +1,7 @@
+import abstractFactory_8장.factory.Factory;
+import abstractFactory_8장.factory.Link;
+import abstractFactory_8장.factory.Page;
+import abstractFactory_8장.factory.Tray;
 import adapter.FileIO;
 import adapter.FileProperties;
 import adapter.extendsPattern.Print;
@@ -5,7 +9,6 @@ import adapter.extendsPattern.PrintBanner;
 import builder_7장.Director;
 import builder_7장.HTMLBuilder;
 import builder_7장.TextBuilder;
-import factory_4장.framework.Factory;
 //import factory_4장.framework.Product;
 import factory_4장.idcard.IDCardFactory;
 import iterator.Book;
@@ -35,8 +38,48 @@ public class Main {
         //factoryPattern(); // 4장 factoryPattern
         //singletonPattern(); // 5장 singletonPattern
         //prototypePattern(); // 6장 prototypePattern
-        builderPattern();
+        //builderPattern(); // 7장 builderPattern
+        abstractFactoryPattern();
+    }
 
+    /**
+     * import는 factory 패키지 뿐이고, 구체적인 부품,제품,공장을 전혀 이용하지 않음
+     *
+     */
+    private static void abstractFactoryPattern() {
+        String filename = "list";
+        String classname = "abstractFactory_8장.listfactory.ListFactory";
+
+        Factory factory = Factory.getFactory(classname);
+
+        // Blog
+        Link blog1 = factory.createLink("Blog 1" , "https://example.com/blog1");
+        Link blog2 = factory.createLink("Blog 2" , "https://example.com/blog2");
+        Link blog3 = factory.createLink("Blog 3" , "https://example.com/blog3");
+
+        Tray blogTray = factory.createTray("Blog Site");
+        blogTray.add(blog1);
+        blogTray.add(blog2);
+        blogTray.add(blog3);
+
+        // News
+        Link news1 = factory.createLink("News 1", "https://example.com/news1");
+        Link news2 = factory.createLink("News 2", "https://example.com/news2");
+        Tray news3 = factory.createTray("News 3");
+        news3.add(factory.createLink("News 3 (US)", "https://example.com/news3us"));
+        news3.add(factory.createLink("News 3 (KOREA)", "https://example.com/news3kr"));
+
+        Tray newsTray = factory.createTray("News Site");
+        newsTray.add(news1);
+        newsTray.add(news2);
+        newsTray.add(news3);
+
+        // Page
+        Page page = factory.createPage("Blog and News", "taegeon.com");
+        page.add(blogTray);
+        page.add(newsTray);
+
+        page.output(filename);
     }
 
     private static void builderPattern() {
