@@ -47,7 +47,7 @@ public class Main {
      *
      */
     private static void abstractFactoryPattern() {
-        String filename = "list";
+        String filename = "list.html";
         String classname = "abstractFactory_8장.listfactory.ListFactory";
 
         Factory factory = Factory.getFactory(classname);

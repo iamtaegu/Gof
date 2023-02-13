@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * 추상적인 제품 클래스
+ * 추상적인 부품(Link, Tray) 사용하여 작성
  */
 public abstract class Page {
 

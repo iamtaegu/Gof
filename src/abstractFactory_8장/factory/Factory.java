@@ -6,9 +6,9 @@ package abstractFactory_8장.factory;
  *
  */
 public abstract class Factory {
-    /**ㄴ
-     * 리플랙션(reflection): 컴파일러가 아닌 프로그램에서 클래스를 생성함
-     * Class.forName을 사용하여 동적으로 해당 클래스를 가져오고,
+    /**
+     * 리플랙션(reflection): 컴파일 시간이 아닌 실행 시간에 동적으로 클래스 생성
+     * Class.forName을 사용하여 동적으로 파라미터 클래스를 가져오고,
      * getDeclaredConstructor 메소드로 생성자를 얻고,
      * newInstance로 인스턴스를 만듬
      * @param classname

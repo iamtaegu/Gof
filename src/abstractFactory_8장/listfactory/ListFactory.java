@@ -5,6 +5,10 @@ import abstractFactory_8장.factory.Link;
 import abstractFactory_8장.factory.Page;
 import abstractFactory_8장.factory.Tray;
 
+/**
+ * Factory를 상속받아
+ * 동적으로 생성
+ */
 public class ListFactory extends Factory {
     @Override
     public Link createLink(String caption, String url) {
