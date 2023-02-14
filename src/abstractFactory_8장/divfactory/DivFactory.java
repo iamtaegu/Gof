@@ -1,25 +1,23 @@
-package abstractFactory_8장.listfactory;
+package abstractFactory_8장.divfactory;
 
-import abstractFactory_8장.divfactory.DivPage;
-import abstractFactory_8장.divfactory.DivTray;
 import abstractFactory_8장.factory.Factory;
 import abstractFactory_8장.factory.Link;
 import abstractFactory_8장.factory.Page;
 import abstractFactory_8장.factory.Tray;
 
-public class ListFactory extends Factory {
+public class DivFactory extends Factory {
     @Override
     public Link createLink(String caption, String url) {
-        return new ListLink(caption, url);
+        return new DivLink(caption, url);
     }
 
     @Override
     public Tray createTray(String caption) {
-        return new ListTray(caption);
+        return new DivTray(caption);
     }
 
     @Override
     public Page createPage(String title, String author) {
-        return new ListPage(title, author);
+        return new DivPage(title, author);
     }
 }

@@ -44,11 +44,12 @@ public class Main {
 
     /**
      * import는 factory 패키지 뿐이고, 구체적인 부품,제품,공장을 전혀 이용하지 않음
-     *
+     * divFactory 추가에 따른 수정 사항은 * classname 밖에 없음
      */
     private static void abstractFactoryPattern() {
-        String filename = "list";
-        String classname = "abstractFactory_8장.listfactory.ListFactory";
+        String filename = "div.html";
+        //String classname = "abstractFactory_8장.listfactory.ListFactory";
+        String classname = "abstractFactory_8장.divfactory.DivFactory";
 
         Factory factory = Factory.getFactory(classname);
 

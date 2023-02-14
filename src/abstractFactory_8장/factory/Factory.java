@@ -1,5 +1,8 @@
 package abstractFactory_8장.factory;
 
+import abstractFactory_8장.divfactory.DivPage;
+import abstractFactory_8장.divfactory.DivTray;
+
 /**
  * 추상적인 공장 클래스
  * 추상적인 부품(Link, Tray)과 제품(Page) 코드를 작성했음
