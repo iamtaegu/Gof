@@ -47,14 +47,9 @@ public class Main {
      * divFactory 추가에 따른 수정 사항은 * classname 밖에 없음
      */
     private static void abstractFactoryPattern() {
-<<<<<<< HEAD
         String filename = "div.html";
         //String classname = "abstractFactory_8장.listfactory.ListFactory";
         String classname = "abstractFactory_8장.divfactory.DivFactory";
-=======
-        String filename = "list.html";
-        String classname = "abstractFactory_8장.listfactory.ListFactory";
->>>>>>> 90726424f769d047f36549b3ca1ac3eebf3697e8
 
         Factory factory = Factory.getFactory(classname);
 
