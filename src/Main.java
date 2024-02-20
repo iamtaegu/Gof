@@ -23,6 +23,7 @@ import singleton_5장.Triple;
 import template_3장.AbstractDisplay;
 import template_3장.CharDisplay;
 import template_3장.StringDisplay;
+import template_3장.TemplatePattern;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -34,12 +35,12 @@ public class Main {
         //iteratorPattern();
         //adapterPattern();
 
-        //templatePattern(); // 3장 templatePattern
+        TemplatePattern.doPattern(); // 3장 templatePattern
         //factoryPattern(); // 4장 factoryPattern
         //singletonPattern(); // 5장 singletonPattern
         //prototypePattern(); // 6장 prototypePattern
         //builderPattern(); // 7장 builderPattern
-        abstractFactoryPattern();
+        //abstractFactoryPattern();
     }
 
     /**
@@ -173,19 +174,6 @@ public class Main {
         card3.use();
 
     } */
-
-    private static void templatePattern() {
-        // 'H'를 가진 CharDisplay 인스턴스를 하나 만듬
-        AbstractDisplay d1 = new CharDisplay('H');
-        // "Hello, world."를 가진 StringDisplay 인스턴스를 하나 만듬
-        AbstractDisplay d2 = new StringDisplay("Hello, world.");
-
-        // d1,d2 모두 같은 AbstractDisplay의 하위 클래스의 인스턴스이므로
-        // 상속한 display 메소드를 호출할 수 있음
-        // 실제 동작은 CharDisplay나 StringDisplay 클래스에서 정해짐
-        d1.display();
-        d2.display();
-    }
 
     private static void adapterPattern() {
 
